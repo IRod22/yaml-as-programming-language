@@ -1,0 +1,20 @@
+program:
+    # Define our function
+  - function:
+      call: $hello
+      with: [$name]
+    do:
+      - call: $print
+        with: ['Hello, ', $name, '!']
+
+  - var:
+      - set: $names
+        to: [world, Ivan]
+  - for: $name
+    in: $names
+    do:
+      - call: $hello
+        with: [$name]
+# Output:
+# Hello, world!
+# Hello, Ivan!
